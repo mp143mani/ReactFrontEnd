@@ -1,63 +1,36 @@
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+import React, { useContext } from "react";
+import "../CSS/Welcome.css";
+// import axios from 'axios'
+//import env from '../enviroinment'
 
-// const Dashboard = () => {
-//   // State to store dashboard data
-//   const [dashboardData, setDashboardData] = useState({});
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { EmployeeContext } from "../Context";
 
-//   // Function to fetch dashboard data from the API
-//   const fetchDashboardData = async () => {
-//     try {
-//       const response = await axios.get('http://localhost:9000/api/dashboard');
-//       setDashboardData(response.data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-//   // Fetch dashboard data when the component mounts
-//   useEffect(() => {
-//     fetchDashboardData();
-//   }, []);
-
-//   return (
-//     <div>
-//       <h2>Welcome to the Dashboard</h2>
-//       {/* Display data, charts, etc. */}
-//       <div>
-//         <h3>Service Requests: {dashboardData.serviceRequestsCount || 0}</h3>
-//         <h3>Leads: {dashboardData.leadsCount || 0}</h3>
-//         <h3>Contacts: {dashboardData.contactsCount || 0}</h3>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
-
-import React, { useState } from 'react';
-import axios from 'axios';
-
-const Dashboard = () => {
-  const [data, setData] = useState(null);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/api/someendpoint');
-      setData(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+export default function Dashboard() {
+const context =useContext(EmployeeContext)
 
   return (
-    <div>
-      <h2>Welcome to the Dashboard</h2>
-      {/* Add any other dashboard content here */}
-      <button onClick={fetchData}>Fetch Data</button>
-      {data && <p>{data.message}</p>}
+    <div className=" wallpaper">
+    <div id="content ">
+    
+      <Navbar />
+      
+      <div class="container text-center">
+        <div class="row gx-5">
+          <div class="col">
+            <div class="lead2">
+              <div className="lead3 col"  > No. Of Leads :{context.length} </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="lead2 ">
+              <div className="lead3 col"> No. Of Service Request :{context.lengthReq} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   );
-};
-
-export default Dashboard;
+}

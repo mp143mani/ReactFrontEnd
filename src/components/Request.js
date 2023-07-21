@@ -1,7 +1,7 @@
 import React from "react";
 import "../CSS/Welcome.css";
 
-export default function Footer() {
+export default function Request() {
   return (
     <div id="content">
       <footer className="sticky-footer format">
