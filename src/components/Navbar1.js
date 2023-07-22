@@ -1,17 +1,20 @@
 import React from "react";
-import "../CSS/Welcome.css";
 import { useNavigate } from "react-router-dom";
+import "../CSS/Welcome.css";
 
 export default function Navbar1() {
-  let navigate = useNavigate();
   const auth = localStorage.getItem('token');
-  let handleBeforeLogin = async () => {
+  const navigate = useNavigate();
+
+  const handleBeforeLogin = async () => {
     navigate("/loginBefore");
   };
-  let handleRegister = async () => {
+
+  const handleRegister = async () => {
     navigate("/Register");
   };
-  let handleBeforeLogout = async () => {
+
+  const handleBeforeLogout = async () => {
     localStorage.clear();
     navigate("/loginBefore");
   };
@@ -19,14 +22,8 @@ export default function Navbar1() {
   return (
     <div id="content">
       {/* Topbar */}
-      <nav
-        className="navbar  navbar-expand-lg bg-dark fixed-top"
-        style={{ color: "white" }}
-      >
+      <nav className="navbar navbar-expand-lg bg-secondary fixed-top" style={{ color: "white" }}>
         <div className="container-fluid">
-          <a className="navbar-brand" style={{ color: "white" }} href="/">
-            INDO Services
-          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -38,86 +35,17 @@ export default function Navbar1() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav">
-              <li className="nav-item ">
-                <a
-                  className="nav-link active me-4"
-                  style={{ color: "white" }}
-                  aria-current="page"
-                  href="/"
-                >
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link me-4"
-                  style={{ color: "white" }}
-                  href="/"
-                >
-                  Features
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link me-4"
-                  style={{ color: "white" }}
-                  href="/"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link me-4"
-                  style={{ color: "white" }}
-                  href="/"
-                >
-                  Services
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link me-4"
-                  style={{ color: "white" }}
-                  href="/"
-                >
-                  Contacts
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link me-4"
-                  style={{ color: "white" }}
-                  href="/"
-                >
-                  Deals
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            {auth ?
-            
-            <button
-              className="btn btn-outline-success mx-2"
-              onClick={() => handleBeforeLogout()}
-            >
-              LOG Out
-            </button>: <button
-              className="btn btn-outline-success mx-2"
-              onClick={() => handleBeforeLogin()}
-            >
-              LOG IN
-            </button>}
-          </div>
-          <div>
-            <button
-              className="btn btn-outline-success me-auto"
-              onClick={() => handleRegister()}
-            >
+          <div className="ms-auto"> {/* Use ms-auto class to align the div to the right */}
+            {auth ? (
+              <button className="btn btn-primary me-2" onClick={handleBeforeLogout}>
+                LOG OUT
+              </button>
+            ) : (
+              <button className="btn btn-primary me-2" onClick={handleBeforeLogin}>
+                LOG IN
+              </button>
+            )}
+            <button className="btn btn-primary" onClick={handleRegister}>
               Register
             </button>
           </div>
