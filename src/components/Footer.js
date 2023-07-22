@@ -10,7 +10,7 @@ export default function Footer() {
             className="copyright text-center my-auto"
             style={{ color: "white" }}
           >
-            <span>Copyright &copy; Your Website 2022</span>
+            {/* <span>Copyright &copy; Your Website 2022</span> */}
           </div>
         </div>
       </footer>

@@ -34,13 +34,11 @@ export default function Navbar() {
   return (
     <div id="content">
       <nav
-        className="navbar  navbar-expand-lg bg-dark fixed-top"
-        style={{ color: "white" }}
+        className="navbar  navbar-expand-lg  fixed-top"
+        style={{ color: "white",backgroundColor:"darkblue" }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" style={{ color: "white" }} href="/">
-            INDO Services
-          </a>
+       
           <button
             className="navbar-toggler"
             type="button"
@@ -96,7 +94,7 @@ export default function Navbar() {
           </div>
           <div>
             <button
-              className="btn btn-outline-success mx-2"
+              className="btn  mx-2" style={{backgroundColor:"pink"}}
               onClick={() => handleBeforeLogout()}
             >
               LOG Out
