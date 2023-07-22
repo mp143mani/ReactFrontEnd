@@ -1,10 +1,11 @@
 import React from "react";
 import "../CSS/Welcome.css";
-// import { useNavigate } from "react-router-dom";
+import Capture4 from "../assets/imgs/Capture4.PNG";
+import { useNavigate } from "react-router-dom";
 import Navbar1 from "./Navbar1";
 
 export default function Welcome() {
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
   //  let handleBeforeLogin = async ()=>{ navigate('/loginBefore')}
   //  let handleRegister = async ()=>{ navigate('/Register')}
   return (
